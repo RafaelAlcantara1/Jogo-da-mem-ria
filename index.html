@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computaria - Jogo da Memória</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Computaria - Jogo da Memória</h1>
+            <div class="game-info">
+                <div class="score">
+                    <span>Pontuação: </span>
+                    <span id="score">0</span>
+                </div>
+                <div class="moves">
+                    <span>Jogadas: </span>
+                    <span id="moves">0</span>
+                </div>
+                <div class="timer">
+                    <span>Tempo: </span>
+                    <span id="timer">00:00</span>
+                </div>
+            </div>
+            <button id="restart-btn">Novo Jogo</button>
+        </header>
+
+        <main>
+            <div class="game-board" id="game-board">
+                <!-- As cartas serão geradas dinamicamente pelo JavaScript -->
+            </div>
+        </main>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <h2>🎉 Parabéns! 🎉</h2>
+                <p>Você completou o jogo em <span id="final-moves">0</span> jogadas!</p>
+                <p>Tempo: <span id="final-time">00:00</span></p>
+                <p>Pontuação: <span id="final-score">0</span></p>
+                <button id="play-again-btn">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
