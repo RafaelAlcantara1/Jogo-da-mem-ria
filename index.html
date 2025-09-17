@@ -10,7 +10,31 @@
     <div class="container">
         <header>
             <h1>Computaria - Jogo da Memória</h1>
-            <div class="game-info">
+            
+            <!-- Added game mode selection -->
+            <div class="game-mode-selection" id="game-mode-selection">
+                <h2>Escolha o modo de jogo:</h2>
+                <button id="single-player-btn" class="mode-btn">1 Jogador</button>
+                <button id="two-player-btn" class="mode-btn">2 Jogadores</button>
+            </div>
+
+            <!-- Added player setup for 2-player mode -->
+            <div class="player-setup" id="player-setup" style="display: none;">
+                <h2>Digite os nomes dos jogadores:</h2>
+                <div class="player-inputs">
+                    <input type="text" id="player1-name" placeholder="Nome do Jogador 1" maxlength="15">
+                    <input type="text" id="player2-name" placeholder="Nome do Jogador 2" maxlength="15">
+                </div>
+                <button id="start-game-btn">Iniciar Jogo</button>
+            </div>
+
+            <div class="game-info" id="game-info" style="display: none;">
+                <!-- Modified to show current player in 2-player mode -->
+                <div class="current-player" id="current-player-display" style="display: none;">
+                    <span>Vez de: </span>
+                    <span id="current-player-name">Jogador 1</span>
+                </div>
+                
                 <div class="score">
                     <span>Pontuação: </span>
                     <span id="score">0</span>
@@ -24,21 +48,45 @@
                     <span id="timer">00:00</span>
                 </div>
             </div>
-            <button id="restart-btn">Novo Jogo</button>
+
+            <!-- Added player scores for 2-player mode -->
+            <div class="players-info" id="players-info" style="display: none;">
+                <div class="player-score">
+                    <span id="player1-display">Jogador 1</span>
+                    <span>Pares: <span id="player1-pairs">0</span></span>
+                </div>
+                <div class="player-score">
+                    <span id="player2-display">Jogador 2</span>
+                    <span>Pares: <span id="player2-pairs">0</span></span>
+                </div>
+            </div>
+
+            <button id="restart-btn" style="display: none;">Novo Jogo</button>
         </header>
 
         <main>
-            <div class="game-board" id="game-board">
+            <div class="game-board" id="game-board" style="display: none;">
                 <!-- As cartas serão geradas dinamicamente pelo JavaScript -->
             </div>
         </main>
 
         <div class="modal" id="modal">
             <div class="modal-content">
-                <h2>🎉 Parabéns! 🎉</h2>
-                <p>Você completou o jogo em <span id="final-moves">0</span> jogadas!</p>
-                <p>Tempo: <span id="final-time">00:00</span></p>
-                <p>Pontuação: <span id="final-score">0</span></p>
+                <!-- Modified modal content for both game modes -->
+                <h2 id="modal-title">🎉 Parabéns! 🎉</h2>
+                <div id="single-player-results">
+                    <p>Você completou o jogo em <span id="final-moves">0</span> jogadas!</p>
+                    <p>Tempo: <span id="final-time">00:00</span></p>
+                    <p>Pontuação: <span id="final-score">0</span></p>
+                </div>
+                <div id="two-player-results" style="display: none;">
+                    <p id="winner-announcement"></p>
+                    <div class="final-scores">
+                        <p><span id="final-player1-name">Jogador 1</span>: <span id="final-player1-pairs">0</span> pares</p>
+                        <p><span id="final-player2-name">Jogador 2</span>: <span id="final-player2-pairs">0</span> pares</p>
+                    </div>
+                    <p>Tempo total: <span id="final-time-2p">00:00</span></p>
+                </div>
                 <button id="play-again-btn">Jogar Novamente</button>
             </div>
         </div>
